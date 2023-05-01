@@ -1,4 +1,4 @@
-if(process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
 
@@ -51,14 +51,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize());
 
 const store = mongoStore.create({
-    mongoUrl:dbUrl,
+    mongoUrl: dbUrl,
     touchAfter: 24 * 60 * 60,
     crypto: {
         secret
     }
 });
 
-store.on("error", function(e) {
+store.on("error", function (e) {
     console.log('Screen Store Error', e);
 })
 
@@ -138,7 +138,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
-app.use((req,res,next) => {
+app.use((req, res, next) => {
     res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
@@ -151,7 +151,7 @@ app.use('/', userRoute);
 app.use('/campgrounds', campgroundRoute);
 app.use('/campgrounds/:id/reviews', reviewRoute);
 
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
     res.render('home')
 })
 
@@ -169,5 +169,6 @@ app.use((err, req, res, next) => {
 
 app.listen(3000, () => {
     console.log('Serving on port 3000')
-})
-// module.exports = app;
+});
+
+module.exports = app;
