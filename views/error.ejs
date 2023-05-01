@@ -1,0 +1,26 @@
+<% layout('layouts/boilerplate') %>
+  <div class="container d-flex justify-content-center align-items-center mt-5"></div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+      <div class="card shadow">
+        <img crossorigin="anonymous"
+          src="https://images.unsplash.com/photo-1621508638997-e30808c10653?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80"
+          alt="" class="card-img-top" />
+        <div class="card-body alert alert-danger" role="alert">
+          <h4 class="card-title alert-heading">ERROR.........!!!</h4>
+          <h5>
+            <%= err.message %>
+          </h5>
+          <% if(process.env.NODE_ENV !=="production" ){ %>
+            <p>
+              <%= err.stack%>
+            </p>
+            <% } %>
+              <hr>
+              <p class="mb-0">!..Please try again..!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
