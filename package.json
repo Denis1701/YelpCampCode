@@ -7,7 +7,7 @@
     "node": "16.x"
   },
   "scripts": {
-    "build": "node app.js",
+    "build": "",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
